@@ -1,0 +1,21 @@
+galaxy_info:
+  role_name: packman
+
+  author: gotmax23
+
+  description: This role installs the Packman repository on OpenSUSE Leap and OpenSUSE Tumbleweed.
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: opensuse
+      versions:
+        - 15.2
+        - 15.3
+        - tumbleweed
+
+  galaxy_tags: [ software, packages, repository, opensuse, packman ]
+
+dependencies: []
