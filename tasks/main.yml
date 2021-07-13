@@ -1,0 +1,24 @@
+---
+- name: Setup Packman Repository
+  when: ansible_os_family == "Suse"
+  block:
+    - name: Import Packamn GPG key
+      rpm_key:
+        key: "{{ packman_gpg_key_url }}"
+        fingerprint: "{{ packman_gpg_key_fingerprint if packman_check_key_fingerprint | bool else omit }}"
+
+    - name: Add Packman Repository
+      become: true
+      zypper_repository:
+        name: packman
+        refresh: true
+        priority: 90
+        repo: "{{ packman_repo_url }}"
+
+    - name: Zypper dist-upgrade
+      become: true
+      zypper:
+        name: "*"
+        state: dist-upgrade
+        allow_vendor_change: true
+        extra_args: "--from packman"

@@ -1,0 +1,15 @@
+---
+_packman_repo_url:
+  "openSUSE Leap": "https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_$releasever/"
+  "openSUSE Tumbleweed": "https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/"
+packman_repo_url: "{{ _packman_repo_url[ansible_distribution] }}"
+
+_packman_gpg_key_url:
+  "openSUSE Tumbleweed": "{{ _packman_repo_url["openSUSE Tumbleweed"] }}/repodata/repomd.xml.key"
+  "openSUSE Leap": "https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_{{ ansible_distribution_version }}/repodata/repomd.xml.key"
+packman_gpg_key_url: "{{ _packman_gpg_key_url[ansible_distribution] }}"
+
+packman_gpg_key_fingerprint: "F887 5B88 0D51 8B6B 8C53  0D13 45A1 D067 1ABD 1AFB"
+
+# Set this to false to skip checking the fingerprint of the packman GPG keys
+packman_check_key_fingerprint: true
