@@ -5,7 +5,7 @@ _packman_repo_url:
 packman_repo_url: "{{ _packman_repo_url[ansible_distribution] }}"
 
 _packman_gpg_key_url:
-  "openSUSE Tumbleweed": "{{ _packman_repo_url["openSUSE Tumbleweed"] }}/repodata/repomd.xml.key"
+  "openSUSE Tumbleweed": "{{ _packman_repo_url['openSUSE Tumbleweed'] }}/repodata/repomd.xml.key"
   "openSUSE Leap": "https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_{{ ansible_distribution_version }}/repodata/repomd.xml.key"
 packman_gpg_key_url: "{{ _packman_gpg_key_url[ansible_distribution] }}"
 

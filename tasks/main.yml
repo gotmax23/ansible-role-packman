@@ -9,16 +9,9 @@
 
     - name: Add Packman Repository
       become: true
+      notify: Zypper dist-upgrade
       zypper_repository:
         name: packman
         refresh: true
         priority: 90
         repo: "{{ packman_repo_url }}"
-
-    - name: Zypper dist-upgrade
-      become: true
-      zypper:
-        name: "*"
-        state: dist-upgrade
-        allow_vendor_change: true
-        extra_args: "--from packman"
