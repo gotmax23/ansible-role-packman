@@ -1,3 +1,4 @@
+---
 galaxy_info:
   role_name: packman
 
@@ -19,3 +20,6 @@ galaxy_info:
   galaxy_tags: [ software, packages, repository, opensuse, packman ]
 
 dependencies: []
+
+collections:
+  - community.general
