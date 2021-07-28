@@ -1,0 +1,8 @@
+---
+- name: Zypper dist-upgrade
+  become: true
+  zypper:
+    name: "*"
+    state: dist-upgrade
+    allow_vendor_change: true
+    extra_args: "--from packman"

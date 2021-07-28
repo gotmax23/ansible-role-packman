@@ -1,0 +1,58 @@
+---
+#
+# Ansible managed
+#
+dependency:
+  name: galaxy
+  options:
+    force: "${GALAXY_FORCE:-false}"
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+driver:
+  name: docker
+platforms:
+  - name: "packman-opensuse-15.2"
+    image: "quay.io/gotmax23/opensuse-systemd:15.2"
+    command: ""
+    pre_build_image: true
+    tmpfs:
+      - /run
+      - /run/lock
+      - /tmp
+      - /sys/fs/cgroup/systemd
+      - /var/lib/journal
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: "packman-opensuse-15.3"
+    image: "quay.io/gotmax23/opensuse-systemd:15.3"
+    command: ""
+    pre_build_image: true
+    tmpfs:
+      - /run
+      - /run/lock
+      - /tmp
+      - /sys/fs/cgroup/systemd
+      - /var/lib/journal
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: "packman-opensuse-tumbleweed"
+    image: "quay.io/gotmax23/opensuse-systemd:tumbleweed"
+    command: ""
+    pre_build_image: true
+    tmpfs:
+      - /run
+      - /run/lock
+      - /tmp
+      - /sys/fs/cgroup/systemd
+      - /var/lib/journal
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      stdout_callback: yaml
+verifier:
+  name: ansible

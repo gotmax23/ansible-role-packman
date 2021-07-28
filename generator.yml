@@ -1,0 +1,14 @@
+---
+- name: Test ansible-role-generator
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    generator_default_docker_image: opensuse
+    generator_default_docker_tag: 15.3
+
+  roles:
+    - gotmax23.generator
+
+
+# vim: set filetype=yaml.ansible:
