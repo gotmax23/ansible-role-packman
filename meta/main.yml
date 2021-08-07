@@ -13,9 +13,7 @@ galaxy_info:
   platforms:
     - name: opensuse
       versions:
-        - 15.2
-        - 15.3
-        - tumbleweed
+        - all
 
   galaxy_tags: [ software, packages, repository, opensuse, packman ]
 
