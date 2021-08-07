@@ -1,7 +1,7 @@
 ---
 - name: zypper_dist_upgrade
   become: true
-  zypper:
+  community.general.zypper:
     name: "*"
     state: dist-upgrade
     allow_vendor_change: true

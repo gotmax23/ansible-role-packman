@@ -3,14 +3,14 @@
   when: ansible_os_family == "Suse"
   block:
     - name: Import Packamn GPG key
-      rpm_key:
+      ansible.builtin.rpm_key:
         key: "{{ packman_gpg_key_url }}"
         fingerprint: "{{ packman_gpg_key_fingerprint if packman_check_key_fingerprint | bool else omit }}"
 
     - name: Add Packman Repository
       become: true
       notify: zypper_dist_upgrade
-      zypper_repository:
+      community.general.zypper_repository:
         name: packman
         refresh: true
         priority: 90
