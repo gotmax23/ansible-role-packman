@@ -3,5 +3,5 @@
 # The default option comes directly from the [OpenSUSE Wiki](https://en.opensuse.org/Additional_package_repositories).
 packman_mirror: "https://ftp.gwdg.de/pub/linux/misc/packman"
 
-# Set this to false to skip checking the fingerprint of the packman GPG keys
+# Whether to check the Packman RPM repo signing key's fingerprint before importing it.
 packman_check_key_fingerprint: true
