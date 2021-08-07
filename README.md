@@ -52,10 +52,10 @@ Maxwell G (@gotmax23)
 
 [badge-license]: https://img.shields.io/github/license/gotmax23/ansible-role-packman.svg
 [link-license]: https://github.com/gotmax23/ansible-role-packman/blob/main/LICENSE
-[badge-role]: https://img.shields.io/ansible/role/.svg
+[badge-role]: https://img.shields.io/ansible/role/55918.svg
 [link-galaxy]: https://galaxy.ansible.com/gotmax23/packman
-[badge-quality]: https://img.shields.io/ansible/quality/.svg
-[badge-downloads]: https://img.shields.io/ansible/role/d/.svg
+[badge-quality]: https://img.shields.io/ansible/quality/55918.svg
+[badge-downloads]: https://img.shields.io/ansible/role/d/55918.svg
 [badge-version]: https://img.shields.io/github/release/gotmax23/ansible-role-packman/svg
 [link-version]: https://github.com/gotmax23/ansible-role-packman/releases
 [badge-ci]: https://github.com/gotmax23/ansible-role-packman/actions/workflows/molecule.yml/badge.svg?branch=main
