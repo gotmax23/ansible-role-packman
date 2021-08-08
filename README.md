@@ -1,9 +1,12 @@
 # Ansible Role: packman
 [![MIT Licensed][badge-license]][link-license]
 [![Role gotmax23.packman][badge-role]][link-galaxy]
+[![Role Version][badge-version]][link-version]
+[![Commits since last version][badge-commits-since]][link-commits-since]
 [![Galaxy Role Quality][badge-quality]][link-galaxy]
 [![Galaxy Role Downloads][badge-downloads]][link-galaxy]
-[![Github Actions CI][badge-ci]][link-ci]
+[![Github Actions Molecule workflow status][badge-molecule-workflow]][link-molecule-workflow]
+[![Github Actions Galaxy workflow status][badge-galaxy-workflow]][link-galaxy-workflow]
 
 This role installs the Packman repository on OpenSUSE Leap and OpenSUSE Tumbleweed.
 
@@ -54,10 +57,14 @@ Maxwell G (@gotmax23)
 [link-license]: https://github.com/gotmax23/ansible-role-packman/blob/main/LICENSE
 [badge-role]: https://img.shields.io/ansible/role/55918.svg
 [link-galaxy]: https://galaxy.ansible.com/gotmax23/packman
+[badge-version]: https://img.shields.io/github/release/gotmax23/ansible-role-packman.svg
+[link-version]: https://github.com/gotmax23/ansible-role-packman/releases
+[badge-commits-since]: https://img.shields.io/github/commits-since/gotmax23/ansible-role-packman/latest.svg
+[link-commits-since]: https://github.com/gotmax23/ansible-role-packman/commits/main
 [badge-quality]: https://img.shields.io/ansible/quality/55918.svg
 [badge-downloads]: https://img.shields.io/ansible/role/d/55918.svg
-[badge-version]: https://img.shields.io/github/release/gotmax23/ansible-role-packman/svg
-[link-version]: https://github.com/gotmax23/ansible-role-packman/releases
-[badge-ci]: https://github.com/gotmax23/ansible-role-packman/actions/workflows/molecule.yml/badge.svg?branch=main
-[link-ci]: https://github.com/gotmax23/ansible-role-packman/actions/workflows/molecule.yml
+[badge-molecule-workflow]: https://github.com/gotmax23/ansible-role-packman/actions/workflows/molecule.yml/badge.svg?branch=main
+[link-molecule-workflow]: https://github.com/gotmax23/ansible-role-packman/actions/workflows/molecule.yml
+[badge-galaxy-workflow]: https://github.com/gotmax23/ansible-role-packman/actions/workflows/galaxy.yml/badge.svg
+[link-galaxy-workflow]: https://github.com/gotmax23/ansible-role-packman/actions/workflows/galaxy.yml
 [link-defaults]: https://github.com/gotmax23/ansible-role-packman/blob/main/defaults.yml
