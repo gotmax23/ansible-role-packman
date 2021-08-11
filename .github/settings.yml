@@ -3,6 +3,6 @@
 # Ansible managed
 #
 repository:
-  description: Ansible role to enable the Packman repository on OpenSUSE Leap and OpenSUSE Tumbleweed.
+  description: Ansible role that installs the Packman repository on OpenSUSE Leap and OpenSUSE Tumbleweed.
   homepage: "https://galaxy.ansible.com/gotmax23/packman"
   topics: software, packages, repository, opensuse, packman, ansible, molecule, ansible-role, role

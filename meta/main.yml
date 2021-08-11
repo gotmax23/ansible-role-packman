@@ -4,7 +4,7 @@ galaxy_info:
 
   author: gotmax23
 
-  description: Ansible role to enable the Packman repository on OpenSUSE Leap and OpenSUSE Tumbleweed.
+  description: Ansible role that installs the Packman repository on OpenSUSE Leap and OpenSUSE Tumbleweed.
 
   license: MIT
 
