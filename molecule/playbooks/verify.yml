@@ -1,0 +1,9 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install a package from Packman
+      community.general.zypper:
+        name: mplayer
