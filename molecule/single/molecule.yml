@@ -13,7 +13,7 @@ lint: |
 driver:
   name: podman
 platforms:
-  - name: "packman-${image:-opensuse}-${tag:-15.3}${TOX_ENVNAME}"
+  - name: "packman-${MOLECULE_SCENARIO_NAME}-${image:-opensuse}-${tag:-15.3}${TOX_ENVNAME}"
     image: "quay.io/gotmax23/${image:-opensuse}-systemd:${tag:-15.3}"
     command: ""
     pre_build_image: true

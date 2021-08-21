@@ -67,6 +67,12 @@ jobs:
             tag: "15.3"
           - image: "opensuse"
             tag: "tumbleweed"
+    env:
+      PY_COLORS: "1"
+      ANSIBLE_FORCE_COLOR: "1"
+      image: "${{ matrix.os.image }}"
+      tag: "${{ matrix.os.tag }}"
+
     steps:
       - name: Checkout Git Repo
         uses: actions/checkout@v2
@@ -99,11 +105,5 @@ jobs:
         run: |
           loginctl enable-linger runner
           sleep 1
-
       - name: Run molecule test
         run: molecule test -s single
-        env:
-          PY_COLORS: "1"
-          ANSIBLE_FORCE_COLOR: "1"
-          image: "${{ matrix.os.image }}"
-          tag: "${{ matrix.os.tag }}"

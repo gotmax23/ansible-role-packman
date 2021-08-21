@@ -13,7 +13,7 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: "packman-opensuse-15.2"
+  - name: "packman-${MOLECULE_SCENARIO_NAME}-opensuse-15.2"
     image: "quay.io/gotmax23/opensuse-systemd:15.2"
     command: ""
     pre_build_image: true
@@ -25,7 +25,7 @@ platforms:
       - /var/lib/journal
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: "packman-opensuse-15.3"
+  - name: "packman-${MOLECULE_SCENARIO_NAME}-opensuse-15.3"
     image: "quay.io/gotmax23/opensuse-systemd:15.3"
     command: ""
     pre_build_image: true
@@ -37,7 +37,7 @@ platforms:
       - /var/lib/journal
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: "packman-opensuse-tumbleweed"
+  - name: "packman-${MOLECULE_SCENARIO_NAME}-opensuse-tumbleweed"
     image: "quay.io/gotmax23/opensuse-systemd:tumbleweed"
     command: ""
     pre_build_image: true
