@@ -21,6 +21,11 @@ Here are this role's variables and their default values, as set in [`defaults/ma
 
 ``` yaml
 ---
+# Options:
+# - `present` ensures that the Packman repository is installed.
+# - `absent` ensures that the Packman repository is not installed.
+packman_state: present
+
 # See http://packman.links2linux.org/mirrors for list of mirrors.
 # The default option comes directly from the [OpenSUSE Wiki](https://en.opensuse.org/Additional_package_repositories).
 packman_mirror: "https://ftp.gwdg.de/pub/linux/misc/packman"

@@ -1,4 +1,9 @@
 ---
+_installw:
+  present: Install
+  absent: Remove
+installw: "{{ _installw[github_cli_state] }}"
+
 _packman_repo_url:
   "openSUSE Leap": "{{ packman_mirror }}/suse/openSUSE_Leap_$releasever/"
   "openSUSE Tumbleweed": "{{ packman_mirror }}/suse/openSUSE_Tumbleweed/"

@@ -1,17 +1,19 @@
 ---
 - name: Setup Packman Repository
+  become: true
   when: ansible_os_family == "Suse"
   block:
-    - name: Import Packamn GPG key
+    - name: "{{ installw }} Packamn GPG key"
       ansible.builtin.rpm_key:
         key: "{{ packman_gpg_key_url }}"
         fingerprint: "{{ packman_gpg_key_fingerprint if packman_check_key_fingerprint | bool else omit }}"
+        state: "{{ packman_state }}"
 
-    - name: Add Packman Repository
-      become: true
+    - name: "{{ installw }} Packman Repository"
       notify: zypper_dist_upgrade
       community.general.zypper_repository:
         name: packman
         refresh: true
         priority: 90
         repo: "{{ packman_repo_url }}"
+        state: "{{ packman_state }}"
