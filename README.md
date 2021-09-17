@@ -27,13 +27,16 @@ Here are this role's variables and their default values, as set in [`defaults/ma
 packman_state: present
 
 # See http://packman.links2linux.org/mirrors for list of mirrors.
-# The default option comes directly from the [OpenSUSE Wiki](https://en.opensuse.org/Additional_package_repositories).
+# The default option comes directly from the [OpenSUSE Wiki][1].
 packman_mirror: "https://ftp.gwdg.de/pub/linux/misc/packman"
 
 # Whether to check the Packman RPM repo signing key's fingerprint before importing it.
 packman_check_key_fingerprint: true
 
 ```
+
+\[1]: https://en.opensuse.org/Additional_package_repositories
+
 
 ## Example Playbook
 ``` yaml

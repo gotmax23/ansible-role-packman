@@ -5,7 +5,7 @@
 packman_state: present
 
 # See http://packman.links2linux.org/mirrors for list of mirrors.
-# The default option comes directly from the [OpenSUSE Wiki](https://en.opensuse.org/Additional_package_repositories).
+# The default option comes directly from the [OpenSUSE Wiki][1].
 packman_mirror: "https://ftp.gwdg.de/pub/linux/misc/packman"
 
 # Whether to check the Packman RPM repo signing key's fingerprint before importing it.
