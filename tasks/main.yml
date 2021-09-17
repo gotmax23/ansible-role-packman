@@ -3,6 +3,13 @@
   become: true
   when: ansible_os_family == "Suse"
   block:
+    - name: Ensure variables are set correctly
+      ansible.builtin.import_tasks: assert.yml
+      delegate_to: localhost
+      vars:
+        ansible_connection: local
+      become: false
+
     - name: "{{ installw }} Packamn GPG key"
       ansible.builtin.rpm_key:
         key: "{{ packman_gpg_key_url }}"

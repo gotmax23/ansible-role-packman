@@ -1,0 +1,19 @@
+---
+- name: Ensure that packman_state is set correctly
+  ansible.builtin.assert:
+    that:
+      - packman_state is defined
+      - packman_state is string
+      - packman_state in [ "present", "absent" ]
+
+- name: Ensure that packman_mirror is set correctly
+  ansible.builtin.assert:
+    that:
+      - packman_mirror is defined
+      - packman_mirror is string
+
+- name: Ensure that packman_check_key_fingerprint is set correctly
+  ansible.builtin.assert:
+    that:
+      - packman_check_key_fingerprint is defined
+      - packman_check_key_fingerprint is boolean
