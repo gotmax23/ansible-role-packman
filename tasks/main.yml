@@ -16,11 +16,18 @@
         fingerprint: "{{ packman_gpg_key_fingerprint if packman_check_key_fingerprint | bool else omit }}"
         state: "{{ packman_state }}"
 
-    - name: "{{ installw }} Packman Repository"
+    - name: "Install Packman Repository"
+      when: packman_state == "present"
       notify: zypper_dist_upgrade
       community.general.zypper_repository:
+        # state: "{{ packman_state }}"
         name: packman
         refresh: true
         priority: 90
         repo: "{{ packman_repo_url }}"
-        state: "{{ packman_state }}"
+
+    - name: Remove Packamn Repository
+      when: packman_state == "absent"
+      ansible.builtin.file:
+        path: /etc/zypp/repos.d/packman.repo
+        state: absent
