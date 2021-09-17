@@ -1,7 +1,26 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    packman_molecule_env_vars:
+      - packman_state
+      - packman_mirror
+      - packman_check_key_fingerprint
+
   tasks:
+    - name: Set role variables if they are defined as env variables
+      loop: "{{ packman_molecule_env_vars }}"
+      when:
+        - lookup('env', item) is string
+        - lookup('env', item) != ""
+      ansible.builtin.set_fact:
+        "{{ item }}": "{{ lookup('env', item) }}"
+
+    -
+      loop: "{{ packman_molecule_env_vars }}"
+      ansible.builtin.debug:
+        msg: "{{ lookup('vars', item, default='') }}"
+
     - name: "Include gotmax23.packman"
       ansible.builtin.include_role:
         name: "gotmax23.packman"
