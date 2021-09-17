@@ -41,12 +41,14 @@ packman_check_key_fingerprint: true
 ## Example Playbook
 ``` yaml
 ---
-- name: Converge
+- name: Set up Packman Repository
   hosts: all
+  become: true
+
   tasks:
-    - name: "Include gotmax23.packman"
+    - name: Set up Packamn Repository
       ansible.builtin.include_role:
-        name: "gotmax23.packman"
+        name: gotmax23.packman
 
 ```
 

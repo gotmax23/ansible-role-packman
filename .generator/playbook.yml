@@ -1,0 +1,9 @@
+---
+- name: Set up Packman Repository
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Set up Packamn Repository
+      ansible.builtin.include_role:
+        name: gotmax23.packman
