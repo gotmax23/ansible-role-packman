@@ -37,7 +37,7 @@ packman_check_key_fingerprint: true
   hosts: all
   tasks:
     - name: "Include gotmax23.packman"
-      include_role:
+      ansible.builtin.include_role:
         name: "gotmax23.packman"
 
 ```

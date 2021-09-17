@@ -12,6 +12,7 @@ lint: |
   ansible-lint
 driver:
   name: docker
+
 platforms:
   - name: "packman-${MOLECULE_SCENARIO_NAME}-opensuse-15.2"
     image: "quay.io/gotmax23/opensuse-systemd:15.2"
