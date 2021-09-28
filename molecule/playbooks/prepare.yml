@@ -1,0 +1,21 @@
+---
+- name: Prepare
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Debug tasks
+      delegate_to: localhost
+      connection: local
+      block:
+        - register: _version
+          command: ansible --version
+        - debug: "{{ _version.stdout }}"
+
+        - register: _list
+          command: ansible-galaxy collection list community.general
+        - debug: "{{ _list.stdout }}"
+
+        - register: _config
+          command: ansible-config dump --only-changed
+        - debug: "{{ _config.stdout }}"
