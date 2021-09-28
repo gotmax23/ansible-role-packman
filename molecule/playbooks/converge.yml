@@ -1,6 +1,8 @@
 ---
 - name: Converge
   hosts: all
+  become: true
+
   vars:
     packman_molecule_env_vars:
       - packman_state
