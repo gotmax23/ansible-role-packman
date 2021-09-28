@@ -9,13 +9,13 @@
       connection: local
       block:
         - register: _version
-          command: ansible --version
+          command: "{{ lookup('env', 'PYTHON_BIN_DIR') }}ansible --version"
         - debug: "{{ _version.stdout }}"
 
         - register: _list
-          command: ansible-galaxy collection list community.general
+          command: "{{ lookup('env', 'PYTHON_BIN_DIR') }}ansible-galaxy collection list community.general"
         - debug: "{{ _list.stdout }}"
 
         - register: _config
-          command: ansible-config dump --only-changed
+          command: "{{ lookup('env', 'PYTHON_BIN_DIR') }}ansible-config dump --only-changed"
         - debug: "{{ _config.stdout }}"

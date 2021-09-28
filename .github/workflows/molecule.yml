@@ -72,7 +72,7 @@ jobs:
       ANSIBLE_FORCE_COLOR: "1"
       image: "${{ matrix.os.image }}"
       tag: "${{ matrix.os.tag }}"
-
+      PYTHON_BIN_DIR: "/opt/hostedtoolcache/Python/3.9.7/x64/bin/"
     steps:
       - name: Checkout Git Repo
         uses: actions/checkout@v2
@@ -110,6 +110,9 @@ jobs:
         run: |
           loginctl enable-linger runner
           sleep 1
+      - run: |-
+          echo "${PATH}"
+          which ansible
       - env:
           packman_state: present
         name: 'Molecule test: packman_state=present'
@@ -118,6 +121,11 @@ jobs:
           packman_state: absent
         name: 'Molecule test: packman_state=absent'
         run: molecule -v test -s single --destroy never
+      - env:
+          packman_state: absent
+        if: ${{ job.status == 'failure' }}
+        name: 'Molecule verify: packman_state=absent'
+        run: molecule -v verify -s single
       - if: always()
         name: Molecule destroy
         run: molecule destroy -s single

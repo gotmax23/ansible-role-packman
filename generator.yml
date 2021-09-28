@@ -8,16 +8,30 @@
     generator_default_docker_tag: 15.3
 
     generator_molecule_wflow_test:
+      env:
+        PYTHON_BIN_DIR: "/opt/hostedtoolcache/Python/3.9.7/x64/bin/"
       skip_test_step: true
       steps:
+        - run: |
+            echo "${PATH}"
+            which ansible
+
         - name: "Molecule test: packman_state=present"
           env:
             packman_state: present
           run: molecule test -s single --destroy never
+
         - name: "Molecule test: packman_state=absent"
           env:
             packman_state: absent
           run: molecule -v test -s single --destroy never
+
+        - name: "Molecule verify: packman_state=absent"
+          if: !unsafe ${{ job.status == 'failure' }}
+          env:
+            packman_state: absent
+          run: molecule -v verify -s single
+
         - name: Molecule destroy
           if: always()
           run: molecule destroy -s single
