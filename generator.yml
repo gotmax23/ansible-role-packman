@@ -17,7 +17,7 @@
         - name: "Molecule test: packman_state=absent"
           env:
             packman_state: absent
-          run: molecule test -s single --destroy never
+          run: molecule -v test -s single --destroy never
         - name: Molecule destroy
           if: always()
           run: molecule destroy -s single

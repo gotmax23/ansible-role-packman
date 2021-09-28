@@ -117,7 +117,7 @@ jobs:
       - env:
           packman_state: absent
         name: 'Molecule test: packman_state=absent'
-        run: molecule test -s single --destroy never
+        run: molecule -v test -s single --destroy never
       - if: always()
         name: Molecule destroy
         run: molecule destroy -s single
