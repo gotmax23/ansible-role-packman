@@ -7,34 +7,53 @@
     packman_state: "{{ lookup('env', 'packman_state') | default('present', True) }}"
 
   tasks:
-    - name: Ensure test package is absent
-      community.general.zypper:
-        name: amrnb
-        state: absent
+    - name: Check /etc/zypp/repos.d/packman.repo presence
+      block:
+        - name: Check /etc/zypp/repos.d/packman.repo presence | stat
+          register: _packman_repo_file_stat
+          ansible.builtin.stat:
+            path: /etc/zypp/repos.d/packman.repo
 
-    - name: Refresh Zypper package cache
-      ansible.builtin.command:
-        cmd: zypper refresh
-        warn: false
+        - name: Check /etc/zypp/repos.d/packman.repo presence | Ensure file is present if packman_state is present
+          when: packman_state == "present"
+          ansible.builtin.assert:
+            that: _packman_repo_file_stat.stat.exists | bool
 
-    - name: Install a package from Packman
-      failed_when: false
-      register: _packman_amrnb_install
-      ansible.builtin.command:
-        cmd: zypper install -y amrnb
-        warn: false
+        - name: Check /etc/zypp/repos.d/packman.repo presence | Ensure file is present if packman_state is absent
+          when: packman_state == "absent"
+          ansible.builtin.assert:
+            that: not _packman_repo_file_stat.stat.exists | bool
 
-    - name: Ensure package installed successfully if packman_state is present
-      when: packman_state == "present"
-      ansible.builtin.assert:
-        that: _packman_amrnb_install.rc == 0
+    - name: Install a test package
+      blocK:
+        - name: Ensure test package is absent
+          community.general.zypper:
+            name: amrnb
+            state: absent
 
-    - name: Ensure package was not installed successfully if packman_state is absent
-      when: packman_state == "absent"
-      ansible.builtin.assert:
-        that: _packman_amrnb_install.rc != 0
+        - name: Refresh Zypper package cache
+          ansible.builtin.command:
+            cmd: zypper refresh
+            warn: false
 
-    - name: Ensure test package is absent
-      community.general.zypper:
-        name: amrnb
-        state: absent
+        - name: Install a package from Packman
+          failed_when: false
+          register: _packman_amrnb_install
+          ansible.builtin.command:
+            cmd: zypper install -y amrnb
+            warn: false
+
+        - name: Ensure package installed successfully if packman_state is present
+          when: packman_state == "present"
+          ansible.builtin.assert:
+            that: _packman_amrnb_install.rc == 0
+
+        - name: Ensure package was not installed successfully if packman_state is absent
+          when: packman_state == "absent"
+          ansible.builtin.assert:
+            that: _packman_amrnb_install.rc != 0
+
+        - name: Ensure test package is absent
+          community.general.zypper:
+            name: amrnb
+            state: absent
