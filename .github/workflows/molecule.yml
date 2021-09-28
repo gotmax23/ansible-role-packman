@@ -72,7 +72,7 @@ jobs:
       ANSIBLE_FORCE_COLOR: "1"
       image: "${{ matrix.os.image }}"
       tag: "${{ matrix.os.tag }}"
-      PYTHON_BIN_DIR: "/opt/hostedtoolcache/Python/3.9.7/x64/bin/"
+
     steps:
       - name: Checkout Git Repo
         uses: actions/checkout@v2
@@ -110,9 +110,12 @@ jobs:
         run: |
           loginctl enable-linger runner
           sleep 1
-      - run: |-
-          echo "${PATH}"
-          which ansible
+      - name: ansible --version
+        run: ansible --version
+      - name: ansible-galaxy collection list community.general
+        run: ansible-galaxy collection list community.general
+      - name: ansible-config dump --only-changed
+        run: ansible-config dump --only-changed
       - env:
           packman_state: present
         name: 'Molecule test: packman_state=present'
