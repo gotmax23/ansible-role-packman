@@ -30,7 +30,7 @@
           run: molecule -v test -s single --destroy never
 
         - name: "Molecule verify: packman_state=absent"
-          if: !unsafe ${{ job.status == 'failure' }}
+          if: always()
           env:
             packman_state: absent
           run: molecule -v verify -s single

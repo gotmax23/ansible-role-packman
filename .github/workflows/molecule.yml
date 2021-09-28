@@ -126,7 +126,7 @@ jobs:
         run: molecule -v test -s single --destroy never
       - env:
           packman_state: absent
-        if: ${{ job.status == 'failure' }}
+        if: always()
         name: 'Molecule verify: packman_state=absent'
         run: molecule -v verify -s single
       - if: always()
