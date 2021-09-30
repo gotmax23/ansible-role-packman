@@ -25,7 +25,7 @@
             that: not _packman_repo_file_stat.stat.exists | bool
 
     - name: Install a test package
-      blocK:
+      block:
         - name: Ensure test package is absent
           community.general.zypper:
             name: amrnb
