@@ -55,6 +55,7 @@ packman_check_key_fingerprint: true
 
 ## Compatibility
 This role is compatible with the following distros:
+
 |distro|versions|
 |------|--------|
 |opensuse|15.2, 15.3, tumbleweed|
