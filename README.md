@@ -60,6 +60,7 @@ packman_check_key_fingerprint: true
 ```
 
 \[1]: http://packman.links2linux.org/mirrors
+
 \[2]: https://en.opensuse.org/Additional_package_repositories
 
 
