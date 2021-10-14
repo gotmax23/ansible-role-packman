@@ -1,5 +1,3 @@
 ---
 collections:
-  - name: git+https://github.com/wombelix/community.general.git
-    type: git
-    version: zypper_repository_improve_repo_file_idempotency
+  - name: community.general
