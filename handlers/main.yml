@@ -1,7 +1,7 @@
 ---
 - name: zypper_dist_upgrade
   become: true
-  #  when: packman_state == "present"
+  when: packman_state == "present"
   community.general.zypper:
     name: "*"
     state: dist-upgrade
