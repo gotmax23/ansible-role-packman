@@ -6,8 +6,7 @@
     - name: Ensure variables are set correctly
       ansible.builtin.import_tasks: assert.yml
       delegate_to: localhost
-      vars:
-        ansible_connection: local
+      connection: local
       become: false
 
     - name: "{{ installw }} Packamn GPG key"
