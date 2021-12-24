@@ -8,5 +8,7 @@ packman_state: present
 # The default option comes directly from the [OpenSUSE Wiki][2].
 packman_mirror: "https://ftp.gwdg.de/pub/linux/misc/packman"
 
+# This option is temporarily disabled.
+# See https://github.com/gotmax23/ansible-role-packman/issues/2 [3] for more information
 # Whether to check the Packman RPM repo signing key's fingerprint before importing it.
-packman_check_key_fingerprint: true
+# packman_check_key_fingerprint: true

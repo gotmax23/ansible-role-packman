@@ -9,11 +9,11 @@
       connection: local
       become: false
 
-    - name: "{{ installw }} Packamn GPG key"
-      ansible.builtin.rpm_key:
-        key: "{{ packman_gpg_key_url }}"
-        fingerprint: "{{ packman_gpg_key_fingerprint if packman_check_key_fingerprint | bool else omit }}"
-        state: "{{ packman_state }}"
+    # - name: "{{ installw }} Packamn GPG key"
+    #   ansible.builtin.rpm_key:
+    #     key: "{{ packman_gpg_key_url }}"
+    #     fingerprint: "{{ packman_gpg_key_fingerprint if packman_check_key_fingerprint | bool else omit }}"
+    #     state: "{{ packman_state }}"
 
     - name: "{{ installw }} Packman Repository"
       notify: zypper_dist_upgrade
@@ -21,5 +21,6 @@
         name: packman
         refresh: true
         priority: 90
+        auto_import_keys: true
         repo: "{{ packman_repo_url }}"
         state: "{{ packman_state }}"

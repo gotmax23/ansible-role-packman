@@ -14,9 +14,9 @@
       - packman_mirror is string
     quiet: true
 
-- name: Ensure that packman_check_key_fingerprint is set correctly
-  ansible.builtin.assert:
-    that:
-      - packman_check_key_fingerprint is defined
-      - packman_check_key_fingerprint is boolean
-    quiet: true
+# - name: Ensure that packman_check_key_fingerprint is set correctly
+#   ansible.builtin.assert:
+#     that:
+#       - packman_check_key_fingerprint is defined
+#       - packman_check_key_fingerprint is boolean
+#     quiet: true
