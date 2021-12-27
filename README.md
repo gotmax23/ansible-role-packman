@@ -21,22 +21,26 @@ Ansible role that installs the Packman repository on OpenSUSE Leap and OpenSUSE 
 This role depends on certain collections that are not included in ansible-core.
 
 
-To install this role's requirements, create a `requirements.yml` file with the contents below and run the following commands:
-
-``` shell
-# ansible-base/ansible-core 2.10 and above
-ansible-galaxy install -r requirements.yml
-
-# ansible 2.9
-ansible-galaxy collection install -r requirements.yml
-```
+To install this role's requirements, create a `requirements.yml` file with the following contents:
 
 ``` yaml
-# requirements.yml
 ---
 collections:
   - name: community.general
 
+```
+
+Then, if you are using ansible-base/ansible-core 2.10 or later, run this command.
+
+``` shell
+ansible-galaxy install -r requirements.yml
+```
+
+
+If you are still using Ansible 2.9, run this command, instead.
+
+``` shell
+ansible-galaxy collection install -r requirements.yml
 ```
 
 ## Role Variables
@@ -54,14 +58,18 @@ packman_state: present
 # The default option comes directly from the [OpenSUSE Wiki][2].
 packman_mirror: "https://ftp.gwdg.de/pub/linux/misc/packman"
 
+# This option is temporarily disabled.
+# See https://github.com/gotmax23/ansible-role-packman/issues/2 [3] for more information
 # Whether to check the Packman RPM repo signing key's fingerprint before importing it.
-packman_check_key_fingerprint: true
+# packman_check_key_fingerprint: true
 
 ```
 
 \[1]: http://packman.links2linux.org/mirrors
 
 \[2]: https://en.opensuse.org/Additional_package_repositories
+
+\[3]: https://github.com/gotmax23/ansible-role-packman/issues/2
 
 
 ## Example Playbook
@@ -79,6 +87,8 @@ packman_check_key_fingerprint: true
 ```
 
 ## Compatibility
+This role is tested using the latest version of ansible-core and the latest version of the collections from Ansible Galaxy. This is the only version of Ansible that this role officially supports. Best effort support is provided for other versions.
+
 This role is compatible with the following distros:
 
 |distro|versions|
