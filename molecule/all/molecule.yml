@@ -16,11 +16,6 @@ driver:
   name: podman
 
 platforms:
-  - name: "packman-${MOLECULE_SCENARIO_NAME}-opensuse-15.2"
-    image: "quay.io/gotmax23/opensuse-systemd:15.2"
-    command: ""
-    pre_build_image: true
-    systemd: true
   - name: "packman-${MOLECULE_SCENARIO_NAME}-opensuse-15.3"
     image: "quay.io/gotmax23/opensuse-systemd:15.3"
     command: ""

@@ -58,18 +58,14 @@ packman_state: present
 # The default option comes directly from the [OpenSUSE Wiki][2].
 packman_mirror: "https://ftp.gwdg.de/pub/linux/misc/packman"
 
-# This option is temporarily disabled.
-# See https://github.com/gotmax23/ansible-role-packman/issues/2 [3] for more information
 # Whether to check the Packman RPM repo signing key's fingerprint before importing it.
-# packman_check_key_fingerprint: true
+packman_check_key_fingerprint: true
 
 ```
 
 \[1]: http://packman.links2linux.org/mirrors
 
 \[2]: https://en.opensuse.org/Additional_package_repositories
-
-\[3]: https://github.com/gotmax23/ansible-role-packman/issues/2
 
 
 ## Example Playbook
@@ -93,7 +89,7 @@ This role is compatible with the following distros:
 
 |distro|versions|
 |------|--------|
-|opensuse|15.2, 15.3, tumbleweed|
+|opensuse|15.3, tumbleweed|
 
 ## License
 [MIT][link-license]

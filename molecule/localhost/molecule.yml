@@ -20,7 +20,7 @@ driver:
     managed: false
 
 platforms:
-  - name: "packman-${MOLECULE_SCENARIO_NAME}-${TOX_ENVNAME}"
+  - name: "packman-${MOLECULE_SCENARIO_NAME}"
 provisioner:
   name: ansible
   config_options:

@@ -69,8 +69,6 @@ jobs:
       matrix:
         os:
           - image: "opensuse"
-            tag: "15.2"
-          - image: "opensuse"
             tag: "15.3"
           - image: "opensuse"
             tag: "tumbleweed"
